@@ -12,23 +12,28 @@ const validacion = () => {
 //primer pregunta para iniciar el juego
 let opcion = confirm('te animas a enfrentar a loki?');
 console.log(opcion);
-//este if valida
+//este if valida continuar el juego despues de una partida
 if (opcion) {
     while (opcion) {
+        //usuario ingresa el dato para iniciar
         let adversario = prompt('ìngrese su heroe para enfrentar a loki');
+        //verifico que sea un dato valido
         if ((adversario != "esc") && (adversario != "") && (adversario != null)) {
             juegoMarvel(adversario);
             opcion = validacion();
         } else {
+            //aviso que el dato no es valido y vuelvo a preguntar
             alert('dato invalido debilucho');
             opcion = validacion();
         }        
     } 
 }else {
+    //si el dato "opcion" es false abandona el juego
     alert('Abandonando el juego')
 }
-
+//funcion para jugar, switch para definir los casos
 function juegoMarvel(adversario) {
+    //la variable loki cambia dependiendo del dato ingrsado por usuario
     let loki = "";
     switch (adversario) {
         case "ironMan":
@@ -65,5 +70,5 @@ function juegoMarvel(adversario) {
             break;
     }
 
-}
+};
 

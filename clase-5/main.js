@@ -1,15 +1,15 @@
-function Mascotas(nombre, tipo, dueno, edad, castrado) {
-    this.nombre = nombre;
-    this.tipo = tipo;
-    this.dueno = dueno;
-    this.edad = edad;
-    this.castrado = castrado;
-    this.bio =
-};
-const simba = new Mascotas("simba", "gato", "yael roufe", 5, true);
-console.log(simba);
-const mila = new Mascotas("mila", "perro", "fulanito gonzalez", 3, false);
-console.log(mila);
+// function Mascotas(nombre, tipo, dueno, edad, castrado) {
+//     this.nombre = nombre;
+//     this.tipo = tipo;
+//     this.dueno = dueno;
+//     this.edad = edad;
+//     this.castrado = castrado;
+//     this.bio =
+// };
+// const simba = new Mascotas("simba", "gato", "yael roufe", 5, true);
+// console.log(simba);
+// const mila = new Mascotas("mila", "perro", "fulanito gonzalez", 3, false);
+// console.log(mila);
 
 /*const crearMascotas = ()=> {
     let nombreMascota= prompt("ingrese nombre de mascota");
@@ -47,9 +47,9 @@ class Productos {
     comprar(cantidad) {
         if (this.stock > cantidad){
             this.stock = this.stock - cantidad;
-            console.log("compraste " + )
+            console.log("compraste " + cantidad);
         }else {
-            console.log("solo quedan " this.stock)
+            console.log("solo quedan " + this.stock);
         }
     }
 

@@ -1,11 +1,13 @@
+// mostrar celulares y caracteristicas
 class Celular {
-	constructor(color,peso,tamaño,rdc,ram){
+	constructor(color,peso,tamaño,rdc,ram,modelo){
 		this.color = color;
 		this.peso = peso;
 		this.tamaño = tamaño;
 		this.resolucionDeCamara = rdc;
 		this.memoriaRam = ram;
 		this.encendido = false;
+        this.modelo = modelo
 	}
 	presionarBotonEncendido(){
 		if (this.encendido == false) {
@@ -31,22 +33,27 @@ class Celular {
 		alert(`grabando video en ${this.resolucionDeCamara}`);
 	}
 	mobileInfo(){
-		return `
+		let info  = `
+        <p style= 'margin-bottom: 5px;'>
+        Modelo: <b>${this.modelo}</b></br>
 		Color: <b>${this.color}</b></br>
 		Peso: <b>${this.peso}</b></br>
 		Tamaño: <b>${this.tamaño}</b></br>
 		Memoria Ram: <b>${this.memoriaRam}</b></br>
 		Resolución de Video: <b>${this.resolucionDeCamara}</b></br>
-		`;
+		</p>`;
+        document.write(info);
 	}
 }
-celular1 = new Celular("rojo","150g","5'","hd","1GB");
+const celular1 = new Celular("rojo","150g","5'","hd","1GB","modelo uno");
 console.log(celular1);
-celular2 = new Celular("negro","155g","5.4'","full hd","2GB");
+const celular2 = new Celular("negro","155g","5.4'","full hd","2GB", "modelo dos");
 console.log(celular2);
-celular3 = new Celular("blanco","15046g","5.9'","full hd","2GB");
+const celular3 = new Celular("blanco","15046g","5.9'","full hd","2GB", "modelo tres");
 console.log(celular3);
-
+celular1.mobileInfo();
+celular2.mobileInfo();
+celular3.mobileInfo();
 celular1.presionarBotonEncendido();
 celular1.tomarFoto();
 celular1.grabarVideo();

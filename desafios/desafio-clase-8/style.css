@@ -35,3 +35,37 @@ body {
     margin-right: 20px;
 
 }
+
+.global {
+    text-transform: uppercase;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    margin-top:30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color:rgba(0, 100, 78, 0.822);
+}
+
+.p1 {
+    color:white;
+}
+
+.p2 {
+    color:green;
+}
+
+.p3 {
+    color:darkred;
+}
+
+.p4 {
+    color:blueviolet;
+}
+
+.p5 {
+    color:darkblue;
+}

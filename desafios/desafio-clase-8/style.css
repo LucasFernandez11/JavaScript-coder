@@ -43,7 +43,7 @@ body {
     text-transform: uppercase;
 }
 
-.card {
+.card {    
     display: flex;
     flex-direction: column;
     font-size: 30px;

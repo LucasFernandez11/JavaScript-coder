@@ -14,14 +14,11 @@ $("toggle").on("click", function () {
 })
 
 $("#fadeIn").on("click", function () {
-    $("box").fadeIn(3000), function () {
-        $("h1").animate({
-            "left": "200px",
-            "opacity": 0.5
-        }, "slow", function () {
-            console.log("termino la animacion")
-            
-        })
+    $("box").fadeIn(3000) function () {
+        $("html, body").animate({
+            scrollTop:("#divCorrido").offSet().top
+        });
+        
     };
     
 })
@@ -60,7 +57,7 @@ $("h1").animate({
     "left": "200px",
     "opacity": 0.5
 }, "slow", function () {
-    console.log("termino la animacion");
+    console.log("termino la animacion")
     
 })
 

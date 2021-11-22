@@ -18,14 +18,14 @@ class Personajes {
             `
             <div class="card pjCard" id=${e.id} style="width: 15rem;">
                 <img class="handlerClick" src=${e.src} class="card-img-top" alt="..."/>
-                <div class="card-body">
-                <h5 class="card-title global">${e.nombre}</h5>
-                <h5>Personaje numero: ${e.numero}</h5>
-                <p class="card-text global p2">Vida: ${e.vida}</p>
-                <p class="card-text global p3">Ataque: ${e.ataque}</p>
-                <p class="card-text global p4">Defensa: ${e.defensa}</p>
-                <p class="card-text global p5">Tipo: ${e.tipo}</p>
-                <button type="button" class="btn btn-danger seleccionar">Seleccionar</button>
+                <div class="card-body ${e.nombre}">
+                    <h5 class="card-title global">${e.nombre}</h5>
+                    <h5>Personaje numero: ${e.numero}</h5>
+                    <p class="card-text global p2">Vida: ${e.vida}</p>
+                    <p class="card-text global p3">Ataque:<span> ${e.ataque} </span> </p>
+                    <p class="card-text global p4">Defensa:<span> ${e.defensa}</span></p>
+                    <p class="card-text global p5">Tipo: ${e.tipo}</p>
+                    <button type="button" class="btn btn-danger seleccionar">Seleccionar</button>
                 </div>
             </div>  
           `;
@@ -52,9 +52,9 @@ class Personajes {
 };
 
 //personajes elegidos por el usuario
-const personaje1 = new Personajes("https://files.rcnradio.com/public/styles/m_img_680x464/public/2019-04/thor_endgame_1_0.jpeg?itok=BedO9-_V", 0, "thor", 100, 80, 75, "electrico", 1);
+const personaje1 = new Personajes("https://www.quever.news/u/fotografias/m/2020/9/12/f850x638-1140_78629_4825.jpg", 0, "thor", 100, 80, 75, "electrico", 1);
 const personaje2 = new Personajes("https://animal.mx/wp-content/uploads/2020/07/hulk_enojado2.jpg", 1, "hulk", 100, 100, 80, "destructor", 2);
-const personaje3 = new Personajes("https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2021/05/iron-man-2332341.jpg?itok=OpnxllqM", 2, "ironMan", 100, 75, 90,"tecnologico",3);
+const personaje3 = new Personajes("https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2021/05/iron-man-2332341.jpg?itok=OpnxllqM", 2, "ironman", 100, 75, 90,"tecnologico",3);
 
 const heroesPrint = document.querySelector("#heroesPrint");
 const contenedorPrint = document.querySelector(".portada");
@@ -93,11 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
            <h5 class="card-title">${nombre}</h5>
            <p class="card-text">Ataque agregado: ${atk}</p>
            <p class="card-text">Defensa agregada: ${def}</p>
-           <span class="btn btn-primary" name="${nombre}" >Agregar a personaje</span>
+           <span class="btn btn-primary" id="${id}" >Agregar a personaje</span>
           </div>
         </div>    
         `    
     })
+    handleClick(listaData)    
     
 });
 
@@ -179,13 +180,38 @@ $("#mostrarProductos").on("click", () => {
         
       });     
      
-} )
+} );
 
+function handleClick (data) {   
+data.forEach(({id,nombre, atk, def}) => {
+    const btnPoderes = document.querySelector(`#${id}`);
+    const asigPoderes = document.querySelector(`.${id}`);
 
+    console.log(asigPoderes);
+    console.log(btnPoderes);
 
+    btnPoderes.addEventListener("click", ({target})=>{
+       console.log(target);
+       
+       if (id == asigPoderes.classList[1]) {
+           const ataque = parseInt(asigPoderes.children[3].firstElementChild.textContent);
+           const defensa = parseInt(asigPoderes.children[4].firstElementChild.textContent); 
+           const resultado = ataque+parseInt(atk)
+           const resultado2 = defensa+parseInt(def)
+           console.log(resultado, resultado2);
+           asigPoderes.children[3].firstElementChild.textContent = resultado.toString()
+           asigPoderes.children[4].firstElementChild.textContent = resultado2.toString()
+       } else return;
+    })
+   
+    
+});
+}
+
+//cambia la imagen del personaje al hacer click sobre la img
 const img = document.querySelector(".handlerClick");
-console.log(img);
+//console.log(img);
 img.addEventListener("click", () => {
-    img.src = "https://www.quever.news/u/fotografias/m/2020/9/12/f850x638-1140_78629_4825.jpg"
+    img.src = "https://files.rcnradio.com/public/styles/m_img_680x464/public/2019-04/thor_endgame_1_0.jpeg?itok=BedO9-_V"
     
 })

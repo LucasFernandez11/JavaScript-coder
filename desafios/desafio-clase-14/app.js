@@ -16,7 +16,7 @@ class Personajes {
         let info =
             //creo cards de bootstrap
             `
-            <div class="card pjCard" id=${e.id} style="width: 15rem;">
+            <div class="card advCard" id=${e.id} style="width: 15rem;">
                 <img class="handlerClick" src=${e.src} class="card-img-top" alt="..."/>
                 <div class="card-body">
                 <h5 class="card-title global">${e.nombre}</h5>
@@ -117,7 +117,7 @@ function printAlert(msj, img) {
 
 //recorre el array y asigna un valor random para que asigne un ganador con el if
 seleccionar.forEach((element) => {
-    element.addEventListener("click", (e) => {
+    element.addEventListener("click", (e) => {      
         //declaro al elemento padre para poder llamar al hijo
         let padre = element.parentElement;
         console.log(padre.firstElementChild.textContent);
@@ -140,7 +140,9 @@ seleccionar.forEach((element) => {
         } else {
             printAlert("Loki te vencio", "https://cdn.colombia.com/sdi/2021/07/07/loki-capitulo-5-resumen-sylvie-tva-old-loki-marvel-studios-932511-0.jpg")
         }
+       
     })
+   
 });
 
 //funcion con setTimeout para eliminar el alert
@@ -176,16 +178,13 @@ $("#tiendaAtributos").hide()
 $("#mostrarProductos").on("click", () => {
     
     $( "#tiendaAtributos" ).toggle( "slow", function() {
-        
-      });     
-     
+       
+      });
 } )
 
-
-
-const img = document.querySelector(".handlerClick");
-console.log(img);
-img.addEventListener("click", () => {
-    img.src = "https://www.quever.news/u/fotografias/m/2020/9/12/f850x638-1140_78629_4825.jpg"
+// const img = document.querySelector(".handlerClick");
+// console.log(img);
+// img.addEventListener("click", () => {
+//     img.src = "https://www.quever.news/u/fotografias/m/2020/9/12/f850x638-1140_78629_4825.jpg"
     
-})
+// })

@@ -11,7 +11,7 @@ class Personajes {
         this.numero = numero
     };
     //informacion de personajes para identificarlos
-    //agrego e como parametro para mostrar en el html
+    
     PersonjesInfo(e) {
         let info =
             //creo cards de bootstrap
@@ -83,8 +83,8 @@ ListaAdversarios.push(adversario1, adversario2, adversario3);
 let listaData;
 document.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("adversarios")?null: localStorage.setItem("adversarios", JSON.stringify(ListaAdversarios));   
-    localStorage.getItem("data")?listaData=JSON.parse(localStorage.getItem("data")):getData(); //esto es un if (ternario)
-    //condicion "?" si es true ":" si es false
+    localStorage.getItem("data")?listaData=JSON.parse(localStorage.getItem("data")):getData(); 
+    
     console.log(listaData);
     listaData.forEach(({id, nombre, atk, def}) => {
         tienda.innerHTML+= `        
@@ -167,10 +167,10 @@ $("document").ready(() => {
 /*api de mockapi*/
 
 const getData = async () => {
-    //el await es la respuesta que entrega en una funcion asincrona
-    await fetch("https://618f434350e24d0017ce167f.mockapi.io/loki/data-shop")//el fetch es una promesa
-    .then(response=>response.json()) // .json es un metodo por defecto de fetch (o de la promesa) lo que hace es parsearlo a javaScript
-    .then(data=>localStorage.setItem("data", JSON.stringify(data))) //.then hace referencaia a la promesa que devuelve el fetch    
+    
+    await fetch("https://618f434350e24d0017ce167f.mockapi.io/loki/data-shop")
+    .then(response=>response.json()) 
+    .then(data=>localStorage.setItem("data", JSON.stringify(data))) 
 }
 
 $("#tiendaAtributos").hide()
@@ -206,12 +206,4 @@ data.forEach(({id,nombre, atk, def}) => {
    
     
 });
-}
-
-//cambia la imagen del personaje al hacer click sobre la img
-const img = document.querySelector(".handlerClick");
-//console.log(img);
-img.addEventListener("click", () => {
-    img.src = "https://files.rcnradio.com/public/styles/m_img_680x464/public/2019-04/thor_endgame_1_0.jpeg?itok=BedO9-_V"
-    
-})
+};
